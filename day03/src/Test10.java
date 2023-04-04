@@ -1,5 +1,8 @@
 import java.util.Scanner;
 
+/**
+ * @author RYX
+ */
 public class Test10 {
 	public static void main(String[] args) {
 		int a= (int)(Math.random()*(10-1+1)+1);
