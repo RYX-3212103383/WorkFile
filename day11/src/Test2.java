@@ -55,8 +55,6 @@ public class Test2 {
 				point[i][j]=input.nextInt();
 			}
 		}
-		double avg=0;
-		int max=0;
 		for (int i = 0; i < sub.length; i++) {
 			System.out.print(sub[i]+"的平均分为"+printavg(i,point)+"\t");
 			System.out.println(sub[i]+"的最高分为"+printmax(i,point));
