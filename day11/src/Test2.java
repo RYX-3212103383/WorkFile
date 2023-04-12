@@ -45,58 +45,77 @@ public class Test2 {
 	}
 
 	private static void work7() {
-		String[] sub=new String[3];
-		int[][] point=new int[3][5];
+		String[] sub = new String[3];
+		int[][] point = new int[3][5];
 		for (int i = 0; i < sub.length; i++) {
 			System.out.print("输入科目名称:");
-			sub[i]=input.next();
+			sub[i] = input.next();
 			for (int j = 0; j < point[i].length; j++) {
-				System.out.print("输入科目"+sub[i]+"分数:");
-				point[i][j]=input.nextInt();
+				System.out.print("输入科目" + sub[i] + "分数:");
+				point[i][j] = input.nextInt();
 			}
 		}
+		for (int j = 0; j < point[0].length; j++) {
+			System.out.println("学生" + j + "的总分为" + getsum(j, point) + ",平均分为" + getavg(j, point));
+		}
 		for (int i = 0; i < sub.length; i++) {
-			System.out.print(sub[i]+"的平均分为"+printavg(i,point)+"\t");
-			System.out.println(sub[i]+"的最高分为"+printmax(i,point));
-	}
+			System.out.print(sub[i] + "的平均分为" + printavg(i, point) + "\t");
+			System.out.println(sub[i] + "的最高分为" + printmax(i, point));
+		}
 		System.out.println(Arrays.deepToString(point));
 		System.out.println(Arrays.toString(sub));
 	}
 
+	private static double getavg(int j, int[][] point) {
+		double avg = 0;
+		for (int i = 0; i < point.length; i++) {
+			avg += (double) point[i][j] / point.length;
+		}
+		return avg;
+	}
+
+	private static int getsum(int j, int[][] point) {
+		int sum = 0;
+		for (int i = 0; i < point.length; i++) {
+			sum += point[i][j];
+		}
+		return sum;
+	}
+
 	private static int printmax(int i, int[][] point) {
-		int max=point[i][0];
+		int max = point[i][0];
 		for (int j = 0; j < point[i].length; j++) {
-			if(point[i][i]>max){
-				max=point[i][j];
+			if (point[i][i] > max) {
+				max = point[i][j];
 			}
 		}
 		return max;
 	}
 
 	private static double printavg(int i, int[][] point) {
-		double avg=0;
+		double avg = 0;
 		for (int j = 0; j < point[i].length; j++) {
-			avg=avg+ (double) point[i][j] /point[i].length;
+			avg = avg + (double) point[i][j] / point[i].length;
 		}
 		return avg;
 	}
 
 
 	private static void work6() {
-		int[][] a=new int[][]{{1,2,3,4},{6,7,8,9},{11,12,13,14},{16,17,18,19}};
-		int sum=0;
-		sum=sum+a[0][0]+a[0][a[0].length-1]+a[a.length-1][0]+a[a.length-1][a[a.length-1].length-1];
+		int[][] a = new int[][]{{1, 2, 3, 4}, {6, 7, 8, 9}, {11, 12, 13, 14}, {16, 17, 18, 19}};
+		int sum = 0;
+		sum = sum + a[0][0] + a[0][a[0].length - 1] + a[a.length - 1][0] + a[a.length - 1][a[a.length - 1].length - 1];
 		System.out.println(sum);
 	}
 
 	private static void work5() {
 		int[][] a = new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-		int sum=0;
+		int sum = 0;
 		for (int i = 0; i < a.length; i++) {
-			if(i==a.length-i-1){
-				sum+=a[i][i];
-			}else {
-				sum=sum+a[i][i]+a[a.length-i-1][a.length-i-1];
+			if (i == a.length - i - 1) {
+				sum += a[i][i];
+			} else {
+				sum = sum + a[i][i] + a[a.length - i - 1][a.length - i - 1];
 			}
 		}
 		System.out.println(sum);
@@ -141,6 +160,6 @@ public class Test2 {
 		for (int i = 0; i < a.length; i++) {
 			b[i] = a[a.length - i - 1];
 		}
-		System.out.println("降序后"+Arrays.toString(b));
+		System.out.println("降序后" + Arrays.toString(b));
 	}
 }
