@@ -111,7 +111,7 @@ public class Test2 {
 				a[i][j] *= 2;
 			}
 		}
-		System.out.println("二维数组" + n + "X" + n);
+		System.out.println("二维数组翻倍" + n + "X" + n);
 		for (int i = 0; i < a.length; i++) {
 			System.out.println(Arrays.toString(a[i]));
 		}
