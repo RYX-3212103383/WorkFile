@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -10,51 +11,56 @@ public class Test1 {
 
 	public static void main(String[] args) {
 		Test1 obj1 = new Test1();
-		System.out.println("作业1-10");
-		int a = input.nextInt();
-		switch (a) {
-			case 1: {
-				obj1.work1();
-				break;
+		for(;;) {
+			System.out.println("作业1-10");
+			int a = input.nextInt();
+			switch (a) {
+				case 0:{
+					System.exit(0);
+				}
+				case 1: {
+					obj1.work1();
+					break;
+				}
+				case 2: {
+					obj1.work2();
+					break;
+				}
+				case 3: {
+					obj1.work3();
+					break;
+				}
+				case 4: {
+					obj1.work4();
+					break;
+				}
+				case 5: {
+					obj1.work5();
+					break;
+				}
+				case 6: {
+					obj1.work6();
+					break;
+				}
+				case 7: {
+					obj1.work7();
+					break;
+				}
+				case 8: {
+					obj1.work8();
+					break;
+				}
+				case 9: {
+					obj1.work9();
+					break;
+				}
+				case 10: {
+					obj1.work10();
+					break;
+				}
+				default:
+					System.out.println("1-10才有哦");
 			}
-			case 2: {
-				obj1.work2();
-				break;
-			}
-			case 3: {
-				obj1.work3();
-				break;
-			}
-			case 4: {
-				obj1.work4();
-				break;
-			}
-			case 5: {
-				obj1.work5();
-				break;
-			}
-			case 6: {
-				obj1.work6();
-				break;
-			}
-			case 7: {
-				obj1.work7();
-				break;
-			}
-			case 8: {
-				obj1.work8();
-				break;
-			}
-			case 9: {
-				obj1.work9();
-				break;
-			}
-			case 10: {
-				obj1.work10();
-				break;
-			}
-			default:
-				System.out.println("1-10才有哦");
 		}
 	}
 
@@ -144,6 +150,7 @@ public class Test1 {
 	void work8() {
 		int[] a=new int[]{1,2,3,5,8,6,6,4,5,6,4,5,5,5};
 		int sum=sumArray(a);
+		System.out.println("sum="+sum);
 	}
 
 	public int sumArray(int[] a) {
@@ -157,6 +164,7 @@ public class Test1 {
 	void work9() {
 		int[][] a=new int[][]{{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}};
 		int[] b=sumDoubleArray(a);
+		System.out.println("各行之和分别为"+ Arrays.toString(b));
 	}
 
 	public int[] sumDoubleArray(int[][] a) {
