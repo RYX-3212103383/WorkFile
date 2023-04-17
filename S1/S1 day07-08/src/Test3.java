@@ -8,7 +8,7 @@ public class Test3 {
 			System.out.print((char)(i+65)+"\t");
 			flag++;
 			if(flag==10){
-				System.out.println("");
+				System.out.println();
 				flag=0;
 			}
 		}

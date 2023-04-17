@@ -83,17 +83,13 @@ public class Test2 {
 
 	private static int[] cutmin(int[] a) {
 		int[] b = new int[a.length - 1];
-		for (int i = 0; i < a.length - 1; i++) {
-			b[i] = a[i];
-		}
+		System.arraycopy(a, 0, b, 0, a.length - 1);
 		return b;
 	}
 
 	private static int[] cutmax(int[] a) {
 		int[] b = new int[a.length - 1];
-		for (int i = 1; i < a.length; i++) {
-			b[i - 1] = a[i];
-		}
+		System.arraycopy(a, 1, b, 0, a.length - 1);
 		return b;
 	}
 

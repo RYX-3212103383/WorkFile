@@ -5,7 +5,7 @@ import java.util.Scanner;
  * @author RYX
  */
 public class Test1 {
-	private static Scanner input = new Scanner(System.in);
+	private static final Scanner input = new Scanner(System.in);
 
 	public static void main(String[] args) {
 		System.out.println("作业1-6");
@@ -85,11 +85,8 @@ public class Test1 {
 		System.out.println(Arrays.toString(a));
 		System.out.println(Arrays.toString(b));
 		int[] c=new int[a.length+b.length];
-		for (int i = 0; i < a.length; i++) {
-			c[i]=a[i];
-		}for (int i = 0; i < a.length; i++) {
-			c[i+a.length]=b[i];
-		}
+		System.arraycopy(a, 0, c, 0, a.length);
+		System.arraycopy(b, 0, c, a.length, a.length);
 		System.out.println(Arrays.toString(c));
 	}
 
@@ -114,9 +111,7 @@ public class Test1 {
 		int[] a = new int[]{1, 3, 5, 7, 9};
 		int[] b = new int[a.length+1];
 		System.out.println(Arrays.toString(a));
-		for (int i = 0; i < a.length; i++) {
-			b[i]=a[i];
-		}
+		System.arraycopy(a, 0, b, 0, a.length);
 		b[a.length] = input.nextInt();
 		Arrays.sort(b);
 		System.out.println(Arrays.toString(b));

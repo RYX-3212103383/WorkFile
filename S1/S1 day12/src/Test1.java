@@ -6,7 +6,7 @@ import java.util.Scanner;
  */
 public class Test1 {
 
-	private static Scanner input = new Scanner(System.in);
+	private static final Scanner input = new Scanner(System.in);
 
 	public static void main(String[] args) {
 		System.out.println("作业1-7");
@@ -51,9 +51,7 @@ public class Test1 {
 		System.out.println("原数组" + Arrays.toString(a));
 		bubblesort(a);
 		System.out.println("冒泡排序" + Arrays.toString(a));
-		for (int i = 0; i < a.length; i++) {
-			b[i] = a[i];
-		}
+		System.arraycopy(a, 0, b, 0, a.length);
 		b[a.length] = input.nextInt();
 		bubblesort(a);
 		System.out.println("加一个冒泡" + Arrays.toString(b));
@@ -85,12 +83,8 @@ public class Test1 {
 		System.out.println(Arrays.toString(a));
 		System.out.println(Arrays.toString(b));
 		int[] c = new int[a.length + b.length];
-		for (int i = 0; i < a.length; i++) {
-			c[i] = a[i];
-		}
-		for (int i = 0; i < a.length; i++) {
-			c[i + a.length] = b[i];
-		}
+		System.arraycopy(a, 0, c, 0, a.length);
+		System.arraycopy(b, 0, c, a.length, a.length);
 		bubblesort(c);
 		System.out.println("冒泡排序" + Arrays.toString(c));
 	}

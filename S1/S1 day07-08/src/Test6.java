@@ -5,7 +5,7 @@ public class Test6 {
 	public static void main(String[] args) {
 		double x = 0.0001;
 		int time = 0;
-		for (; x <= 8848; ) {
+		while (x <= 8848) {
 			x *= 2;
 			time++;
 		}

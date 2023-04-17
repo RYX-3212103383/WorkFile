@@ -25,9 +25,9 @@ public class Test1 {
 			System.out.println("寻找的数在" + (add + 1) + "位,");
 		}
 		int[] e = new int[]{66, 22, 44, 11, 88};
-		int[] ebak = Arrays.copyOf(e, e.length);
+		int[] bak = Arrays.copyOf(e, e.length);
 		e = arrayplus(e, 10);
-		formatPrint(e, ebak);
+		formatPrint(e, bak);
 	}
 
 
@@ -72,10 +72,10 @@ public class Test1 {
 		return e;
 	}
 
-	private static void formatPrint(int[] e, int[] ebak) {
+	private static void formatPrint(int[] e, int[] bak) {
 		System.out.println("序号\t加积分前\t加积分后");
 		for (int i = 0; i < e.length; i++) {
-			System.out.println((i + 1) + "\t\t" + ebak[i] + "\t\t" + e[i]);
+			System.out.println((i + 1) + "\t\t" + bak[i] + "\t\t" + e[i]);
 		}
 	}
 }

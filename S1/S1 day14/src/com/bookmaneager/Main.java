@@ -1,4 +1,4 @@
-package BookManeger;
+package com.bookmaneager;
 
 import java.util.Scanner;
 
@@ -7,16 +7,14 @@ import java.util.Scanner;
  */
 public class Main {
 	Scanner input = new Scanner(System.in);
-	//Book book=new Book();
 	Book[] books = new Book[1000];
-	Book book = new Book();
 
 	public static void main(String[] args) {
 		Main obj2 = new Main();
 		obj2.menu();
 	}
 
-	void adddefault() {
+	void addDefault() {
 		books[0] = new Book();
 		books[0].setId(1);
 		books[0].setName("张三自传");
@@ -38,15 +36,9 @@ public class Main {
 	}
 
 	private void menu() {
-		adddefault();
+		addDefault();
 		for (; ; ) {
-			System.out.print("欢迎使用图书管理系统!\n" +
-					"1.添加图书\n" +
-					"2.删除图书\n" +
-					"3.修改图书\n" +
-					"4.查找图书\n" +
-					"5.退出系统\n" +
-					"请选择操作:");
+			System.out.print("欢迎使用图书管理系统!\n" + "1.添加图书\n" + "2.删除图书\n" + "3.修改图书\n" + "4.查找图书\n" + "5.退出系统\n" + "请选择操作:");
 			int nextInt = input.nextInt();
 			switch (nextInt) {
 				case 1: {
@@ -54,7 +46,7 @@ public class Main {
 					break;
 				}
 				case 2: {
-					deletdBook();
+					deleteBook();
 					break;
 				}
 				case 3: {
@@ -99,7 +91,7 @@ public class Main {
 		books[index].setNum(num);
 	}
 
-	private void deletdBook() {
+	private void deleteBook() {
 		printBooks(books);
 		System.out.println("===============\n输入删除的书本ID");
 		int id = input.nextInt();
@@ -144,7 +136,7 @@ public class Main {
 			if (books[i] == null) {
 				continue;
 			} else if (books[i].getId() == id) {
-				printone(books[i]);
+				printOne(books[i]);
 			}
 		}
 	}
@@ -160,7 +152,7 @@ public class Main {
 		}
 	}
 
-	public void printone(Book book) {
+	public void printOne(Book book) {
 		System.out.println("ID\t\t书名\t\t\t作者\t\t价格\t\t数量");
 		System.out.print(book.getId() + "\t\t" + book.getName() + "\t\t" + book.getAuthor() + "\t\t" + book.getPrice() + "\t" + book.getNum() + "\n");
 	}

@@ -1,4 +1,3 @@
-import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -6,7 +5,6 @@ import java.util.Scanner;
  */
 public class Test2 {
 	static Scanner input = new Scanner(System.in);
-	static Random r = new Random();
 
 	public static void main(String[] args) {
 		Test2 obj2 = new Test2();

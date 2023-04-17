@@ -13,7 +13,7 @@ public class Test4 {
 					break;
 				}
 			}
-			System.out.printf("\n");
+			System.out.print("\n");
 		}
 	}
 }

@@ -3,7 +3,7 @@
  */
 public class Test3 {
 	public static void main(String[] args) {
-		int age = (int) (Math.random() * (80 - 0 + 1) + 0);
+		int age = (int) (Math.random() * (80 + 1) + 0);
 		System.out.println(age);
 		if (age < 10) {
 			System.out.println("童年");

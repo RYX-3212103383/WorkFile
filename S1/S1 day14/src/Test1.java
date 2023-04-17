@@ -1,4 +1,3 @@
-import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -6,7 +5,6 @@ import java.util.Scanner;
  */
 public class Test1 {
 	static Scanner input = new Scanner(System.in);
-	static Random r = new Random();
 
 	public static void main(String[] args) {
 		Test1 obj1 = new Test1();
@@ -101,7 +99,7 @@ public class Test1 {
 			for (int j = 0; j < a[i].length; j++) {
 				System.out.print(a[i][j] + "\t");
 			}
-			System.out.println("");
+			System.out.println();
 		}
 	}
 

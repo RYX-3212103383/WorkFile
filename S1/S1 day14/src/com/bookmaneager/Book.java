@@ -1,4 +1,4 @@
-package BookManeger;
+package com.bookmaneager;
 
 /**
  * @author RYX
@@ -9,6 +9,18 @@ public class Book {
 	String author;
 	double price;
 	int num;
+
+	public Book() {
+
+	}
+
+	public Book(int id, String name, String author, double price, int num) {
+		this.id = id;
+		this.name = name;
+		this.author = author;
+		this.price = price;
+		this.num = num;
+	}
 
 	public Book createBook(int id, String name, String author, double price, int num) {
 		Book book=new Book();
