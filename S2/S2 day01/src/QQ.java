@@ -3,6 +3,7 @@
  */
 public class QQ {
 	private int id;
+	private int qqid;
 	private int num;
 	private String name;
 	private String icon;
@@ -11,8 +12,9 @@ public class QQ {
 	public QQ() {
 	}
 
-	public QQ(int id, int num, String name, String icon, String password) {
+	public QQ(int id, int qqid, int num, String name, String icon, String password) {
 		this.id = id;
+		this.qqid = qqid;
 		this.num = num;
 		this.name = name;
 		this.icon = icon;
@@ -25,6 +27,14 @@ public class QQ {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public int getQqid() {
+		return qqid;
+	}
+
+	public void setQqid(int qqid) {
+		this.qqid = qqid;
 	}
 
 	public int getNum() {
