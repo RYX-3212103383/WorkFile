@@ -1,4 +1,4 @@
-package com.ryx;
+package max;
 
 public class Max {
 	public byte max(byte a, byte b) {

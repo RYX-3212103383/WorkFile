@@ -1,4 +1,4 @@
-package com.ryx;
+package fan;
 
 public class FanTest {
 	public static void main(String[] args) {

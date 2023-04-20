@@ -1,4 +1,4 @@
-package com.ryx;
+package array;
 
 import java.util.Arrays;
 

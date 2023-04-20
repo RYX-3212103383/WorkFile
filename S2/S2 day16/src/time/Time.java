@@ -1,4 +1,4 @@
-package com.ryx;
+package time;
 
 public class Time {
 	private int mHour;

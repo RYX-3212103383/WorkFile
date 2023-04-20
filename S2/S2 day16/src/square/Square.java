@@ -1,4 +1,4 @@
-package com.ryx;
+package square;
 
 public class Square {
 	public int square(int a) {

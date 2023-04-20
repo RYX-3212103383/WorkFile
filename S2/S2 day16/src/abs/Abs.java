@@ -1,4 +1,4 @@
-package com.ryx;
+package abs;
 
 public class Abs {
 

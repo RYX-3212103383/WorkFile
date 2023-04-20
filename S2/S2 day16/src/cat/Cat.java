@@ -1,4 +1,4 @@
-package com.ryx;
+package cat;
 
 public class Cat {
 	private static int count = 0;

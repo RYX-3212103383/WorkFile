@@ -1,4 +1,4 @@
-package com.ryx;
+package array;
 
 public class ArrayOperator {
 	private double[] a;

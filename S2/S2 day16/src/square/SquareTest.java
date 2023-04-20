@@ -1,4 +1,4 @@
-package com.ryx;
+package square;
 
 public class SquareTest {
 	public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package com.ryx;
+package max;
 
 public class MaxTest {
 	public static void main(String[] args) {

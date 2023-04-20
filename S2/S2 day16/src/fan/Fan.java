@@ -1,4 +1,4 @@
-package com.ryx;
+package fan;
 
 public class Fan {
 	private final int SLOW = 1;

@@ -1,4 +1,4 @@
-package com.ryx;
+package abs;
 
 public class AbsTest {
 	public static void main(String[] args) {
