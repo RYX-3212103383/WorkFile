@@ -1,7 +1,7 @@
 package array;
 
 public class ArrayOperator {
-	private double[] a;
+	private final double[] a;
 
 	public ArrayOperator(double[] a) {
 		this.a = a;
