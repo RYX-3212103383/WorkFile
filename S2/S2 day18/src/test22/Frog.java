@@ -1,7 +1,7 @@
 package test22;
 
 public class Frog extends Animal implements WaterDao, LandDao {
-	int numberOfLegs;
+	protected int numberOfLegs;
 	boolean hasGills;
 	boolean hasEggs;
 
@@ -51,16 +51,16 @@ public class Frog extends Animal implements WaterDao, LandDao {
 	}
 
 	@Override
-	void defaultAct() {
+	public void defaultAct() {
 		System.out.println("呱叫");
 	}
 	@Override
-	void happyAct() {
+	public void happyAct() {
 		System.out.println("呱呱呱");
 	}
 
 	@Override
-	void scareAct() {
+	public void scareAct() {
 		System.out.println("扑通一声跳入水中");
 	}
 

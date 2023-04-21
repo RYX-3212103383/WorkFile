@@ -1,11 +1,11 @@
 package test22;
 
 public abstract class Animal {
-	private String name;
-	private boolean happy;
-	private boolean scare;
-	private boolean carnivorous;
-	private boolean mammals;
+	protected String name;
+	protected boolean happy;
+	protected boolean scare;
+	protected boolean carnivorous;
+	protected boolean mammals;
 
 	public Animal(String name, boolean happy, boolean scare) {
 		this.name = name;
@@ -56,12 +56,12 @@ public abstract class Animal {
 		this.scare = scare;
 	}
 
-	abstract void happyAct();
+	public abstract void happyAct();
 
-	abstract void scareAct();
-	abstract void defaultAct();
+	public abstract void scareAct();
+	public abstract void defaultAct();
 
-	void moodreply() {
+	public void moodreply() {
 		defaultAct();
 		if (happy) {
 			happyAct();

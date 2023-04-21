@@ -1,7 +1,7 @@
 package test22;
 
 public class Dog extends Animal implements LandDao{
-	int numberOfLegs;
+	protected int numberOfLegs;
 	public Dog(String name, boolean happy, boolean scare, int legs) {
 		super(name, happy, scare);
 		numberOfLegs(legs);
@@ -18,16 +18,16 @@ public class Dog extends Animal implements LandDao{
 	}
 
 	@Override
-	void defaultAct() {
+	public void defaultAct() {
 		System.out.println("汪汪叫");
 	}
 	@Override
-	void happyAct() {
+	public void happyAct() {
 		System.out.println("旺旺叫");
 	}
 
 	@Override
-	void scareAct() {
+	public void scareAct() {
 		System.out.println("呜呜");
 	}
 
