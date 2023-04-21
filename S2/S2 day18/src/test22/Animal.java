@@ -4,6 +4,8 @@ public abstract class Animal {
 	private String name;
 	private boolean happy;
 	private boolean scare;
+	private boolean carnivorous;
+	private boolean mammals;
 
 	public Animal(String name, boolean happy, boolean scare) {
 		this.name = name;
@@ -12,6 +14,22 @@ public abstract class Animal {
 	}
 
 	public Animal() {
+	}
+
+	public boolean isCarnivorous() {
+		return carnivorous;
+	}
+
+	public void setCarnivorous(boolean carnivorous) {
+		this.carnivorous = carnivorous;
+	}
+
+	public boolean isMammals() {
+		return mammals;
+	}
+
+	public void setMammals(boolean mammals) {
+		this.mammals = mammals;
 	}
 
 	public String getName() {
