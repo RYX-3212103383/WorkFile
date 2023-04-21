@@ -41,9 +41,10 @@ public abstract class Animal {
 	abstract void happyAct();
 
 	abstract void scareAct();
+	abstract void defaultAct();
 
 	void moodreply() {
-
+		defaultAct();
 		if (happy) {
 			happyAct();
 		}

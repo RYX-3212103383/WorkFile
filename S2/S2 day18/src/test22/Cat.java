@@ -1,7 +1,7 @@
 package test22;
 
 public class Cat extends Animal implements LandDao{
-	int legs;
+	int numberOfLegs;
 	public Cat(String name, boolean happy, boolean scare, int legs) {
 		super(name, happy, scare);
 		numberOfLegs(legs);
@@ -13,7 +13,13 @@ public class Cat extends Animal implements LandDao{
 
 	@Override
 	public void numberOfLegs(int lenum) {
-		System.out.println(getName()+"有"+ lenum +"条腿");
+		numberOfLegs=lenum;
+		System.out.println(getName()+"有"+ numberOfLegs +"条腿");
+	}
+
+	@Override
+	void defaultAct() {
+		System.out.println("喵喵叫");
 	}
 
 	@Override
@@ -24,5 +30,13 @@ public class Cat extends Animal implements LandDao{
 	@Override
 	void scareAct() {
 		System.out.println("嘶嘶");
+	}
+
+	public int getNumberOfLegs() {
+		return numberOfLegs;
+	}
+
+	public void setNumberOfLegs(int numberOfLegs) {
+		this.numberOfLegs = numberOfLegs;
 	}
 }
