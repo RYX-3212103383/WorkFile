@@ -4,7 +4,7 @@ public class Teacher extends Person{
 	protected double salary;
 public void show(Teacher teacher){
 	super.show(teacher);
-	System.out.println("slaary是"+salary);
+	System.out.println("salary是"+salary);
 }
 	public Teacher() {
 	}
