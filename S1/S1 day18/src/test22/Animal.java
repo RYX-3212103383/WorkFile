@@ -6,20 +6,6 @@ public abstract class Animal {
 	protected boolean scare;
 	protected boolean carnivorous;
 	protected boolean mammals;
-	public void isCarn(){
-		if (isCarnivorous()){
-			System.out.println("是食肉");
-		}else {
-			System.out.println("不是食肉");
-		}
-	}
-	public void isMam(){
-		if (isMammals()){
-			System.out.println("是哺乳");
-		}else {
-			System.out.println("不是哺乳");
-		}
-	}
 
 	public Animal(String name, boolean happy, boolean scare) {
 		this.name = name;
@@ -28,6 +14,22 @@ public abstract class Animal {
 	}
 
 	public Animal() {
+	}
+
+	public void isCarn() {
+		if (isCarnivorous()) {
+			System.out.println("是食肉");
+		} else {
+			System.out.println("不是食肉");
+		}
+	}
+
+	public void isMam() {
+		if (isMammals()) {
+			System.out.println("是哺乳");
+		} else {
+			System.out.println("不是哺乳");
+		}
 	}
 
 	public boolean isCarnivorous() {
@@ -73,6 +75,7 @@ public abstract class Animal {
 	public abstract void happyAct();
 
 	public abstract void scareAct();
+
 	public abstract void defaultAct();
 
 	public void moodreply() {

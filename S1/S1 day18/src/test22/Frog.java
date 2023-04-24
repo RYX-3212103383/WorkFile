@@ -15,9 +15,10 @@ public class Frog extends Animal implements WaterDao, LandDao {
 	}
 
 	@Override
-	public void numberOfLegs(int lenum) {
-		numberOfLegs=lenum;
+	public int numberOfLegs(int lenum) {
+		numberOfLegs = lenum;
 		System.out.println(getName() + "有" + numberOfLegs + "条腿");
+		return lenum;
 	}
 
 	@Override
@@ -28,7 +29,7 @@ public class Frog extends Animal implements WaterDao, LandDao {
 
 	@Override
 	public void gills() {
-		if (hasGills == true) {
+		if (hasGills) {
 			System.out.println("有鳃");
 		} else {
 			System.out.println("没有鳃");
@@ -43,7 +44,7 @@ public class Frog extends Animal implements WaterDao, LandDao {
 
 	@Override
 	public void eggs() {
-		if (hasEggs == true) {
+		if (hasEggs) {
 			System.out.println("是卵生");
 		} else {
 			System.out.println("不是卵生");
@@ -54,6 +55,7 @@ public class Frog extends Animal implements WaterDao, LandDao {
 	public void defaultAct() {
 		System.out.println("呱叫");
 	}
+
 	@Override
 	public void happyAct() {
 		System.out.println("呱呱呱");
@@ -64,11 +66,4 @@ public class Frog extends Animal implements WaterDao, LandDao {
 		System.out.println("扑通一声跳入水中");
 	}
 
-	public int getNumberOfLegs() {
-		return numberOfLegs;
-	}
-
-	public void setNumberOfLegs(int numberOfLegs) {
-		this.numberOfLegs = numberOfLegs;
-	}
 }
