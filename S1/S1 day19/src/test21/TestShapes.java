@@ -1,7 +1,5 @@
 package test21;
 
-import java.awt.*;
-
 public class TestShapes {
 	public static void main(String[] args) {
 		try {
