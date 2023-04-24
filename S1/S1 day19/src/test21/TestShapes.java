@@ -4,9 +4,8 @@ import java.awt.*;
 
 public class TestShapes {
 	public static void main(String[] args) {
-		Triagle tri= null;
 		try {
-			tri = new Triagle(10,4,3);
+			Triagle tri = new Triagle(10,4,3);
 			tri.printDetail();
 		} catch (Exception e) {
 			e.printStackTrace();

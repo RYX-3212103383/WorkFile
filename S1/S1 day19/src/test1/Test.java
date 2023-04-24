@@ -5,6 +5,7 @@ public class Test {
 		int x=10,y=0;
 		try {
 			int c=x/y;
+			System.out.println(c);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
