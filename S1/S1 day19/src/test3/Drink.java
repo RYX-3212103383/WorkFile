@@ -1,15 +1,18 @@
 package test3;
 
 public abstract class Drink {
+	public static final int COFFEE=1;
+	public static final int BEER=2;
+	public static final int MILK=3;
 	public static Drink getDrink(int type) throws Exception {
 		switch (type) {
-			case 1: {
+			case COFFEE: {
 				return new Coffee();
 			}
-			case 2: {
+			case BEER: {
 				return new Bree();
 			}
-			case 3: {
+			case MILK: {
 				return new Milk();
 			}
 			default: {

@@ -1,18 +1,18 @@
 package test3;
 
-import static test3.Drink.getDrink;
+import static test3.Drink.*;
 
 public class Test {
 	public static void main(String[] args) {
 		try {
-			Drink drink1 = getDrink(1);
-			drink1.taste();
-			Drink drink2 = getDrink(2);
-			drink2.taste();
-			Drink drink3 = getDrink(3);
-			drink3.taste();
-			Drink drink4 = getDrink(4);
-			drink4.taste();
+			Drink drink = getDrink(COFFEE);
+			drink.taste();
+			drink = getDrink(BEER);
+			drink.taste();
+			drink = getDrink(MILK);
+			drink.taste();
+			drink = getDrink(4);
+			drink.taste();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
