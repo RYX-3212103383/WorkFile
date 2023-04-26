@@ -11,7 +11,7 @@ public class Main {
 		System.out.println("3.\t" + s1.equals(s2));
 		System.out.println("4.\t" + s2.equals(s3));
 		System.out.println("5.\t" + s1.compareTo(s2));
-		System.out.println("6.\t" + s1.compareTo(s3));
+		System.out.println("6.\t" + s2.compareTo(s3));
 		System.out.println("7.\t" + (s1 == s4));
 		System.out.println("8.\t" + s1.charAt(0));
 		System.out.println("9.\t" + s1.indexOf('j'));

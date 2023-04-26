@@ -15,10 +15,15 @@ public class Test {
 				"iauekajg@aoih.com", "第一工作室",
 				9999.3, new MyDate(2000, 10, 25),
 				new MyDate(2020, 10, 19), "高");
-		System.out.println(person.toString());
-		System.out.println(employee.toString());
-		System.out.println(student.toString());
-		System.out.println(staff.toString());
-		System.out.println(faculty.toString());
+		System.out.println(person);
+		System.out.println("----------");
+		System.out.println(employee);
+		System.out.println("----------");
+		System.out.println(student);
+		System.out.println("----------");
+		System.out.println(staff);
+		System.out.println("----------");
+		System.out.println(faculty);
+		System.out.println("----------");
 	}
 }
