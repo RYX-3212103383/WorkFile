@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Test {
-	public static Book book1 = new Book(1, 2001, "《诗经》", 1.0, "孔子", "尹吉甫采集、孔子编订", 10);
+/*	public static Book book1 = new Book(1, 2001, "《诗经》", 1.0, "孔子", "尹吉甫采集、孔子编订", 10);
 	public static Book book2 = new Book(2, 2002, "《离骚》", 2.0, "屈原", "战国屈原", 20);
 	public static Book book3 = new Book(3, 2003, "《梦溪笔谈》", 3.0, "沈括", "北宋科学家、政治家沈括所著", 30);
 	public static Book book4 = new Book(4, 2004, "《孙子兵法》", 4.0, "孙武", "春秋末期孙武所著", 40);
@@ -12,13 +12,14 @@ public class Test {
 	public static Book book6 = new Book(6, 2006, "《世说新语》", 6.0, "刘义庆", "南朝宋刘义庆所著", 60);
 	public static Book book7 = new Book(7, 2007, "《聊斋志异》", 7.0, "蒲松龄", "清朝小说家蒲松龄所作", 70);
 	public static Book[] bookdata = {book1, book2, book3, book4, book5, book6, book7};
+	已用static块在方法中给定初值*/
 
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		BookDaoImpl books = new BookDaoImpl();
-		for (int i = 0; i < bookdata.length; i++) {
-			books.add(bookdata[i]);
-		}
+//		for (int i = 0; i < bookdata.length; i++) {
+//			books.add(bookdata[i]);
+//		}
 		for (; ; ) {
 			System.out.print("1.增加\n" + "2.删除\n" + "3.修改\n" + "4.查询一个\n" + "5.查询所有\n" + "6.关键字查询\n" + "0.退出\n" + "输入操作代码\n");
 			int optioncode = input.nextInt();

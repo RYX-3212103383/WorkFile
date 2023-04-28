@@ -1,13 +1,13 @@
 package test21;
 
 public class Book {
-	private int id;
-	private int year;
+	private Integer id;
+	private Integer year;
 	private String name;
-	private double price;
+	private Double price;
 	private String author;
 	private String info;
-	private int num;
+	private Integer num;
 
 	public Book() {
 	}
