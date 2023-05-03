@@ -44,7 +44,7 @@ public class Main {
 					author = input.next();
 					System.out.println("请输入书本简介");
 					info = input.next();
-					System.out.println("请输入书本价格-");
+					System.out.println("请输入书本价格");
 					price = input.nextDouble();
 					System.out.println("请输入书本数量");
 					num = input.nextInt();
