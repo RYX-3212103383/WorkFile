@@ -3,7 +3,7 @@ package test21;
 import java.util.List;
 import java.util.Scanner;
 
-public class Test {
+public class Main {
 /*	public static Book book1 = new Book(1, 2001, "《诗经》", 1.0, "孔子", "尹吉甫采集、孔子编订", 10);
 	public static Book book2 = new Book(2, 2002, "《离骚》", 2.0, "屈原", "战国屈原", 20);
 	public static Book book3 = new Book(3, 2003, "《梦溪笔谈》", 3.0, "沈括", "北宋科学家、政治家沈括所著", 30);
