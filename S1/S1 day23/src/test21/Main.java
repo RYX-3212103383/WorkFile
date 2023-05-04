@@ -63,9 +63,9 @@ public class Main {
 				Product pro = new Product(id, name, price, num);
 				int returncode = product.add(pro);
 				if (returncode == 1) {
-					System.out.println("添加成功");
+					System.out.println("更改成功");
 				} else {
-					System.out.println("添加失败");
+					System.out.println("更改失败");
 				}
 				//product.update();
 			} else if ("pay".equals(operacode)) {
