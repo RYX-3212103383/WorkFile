@@ -10,16 +10,18 @@ public class Main {
 		testCopy(url, path2);
 	}
 
-	private static void testCopy(String url, String path2) throws Exception {
-		File file1 = getFile(url);
+	private static void testCopy(String path1,String path2) throws Exception {
+		File file1 = new File(path1);
 		FileInputStream fis = new FileInputStream(file1);
 		File file2 = new File(path2);
 		FileOutputStream fos = new FileOutputStream(file2);
 		if (!file2.exists()) {
 			file2.createNewFile();
 		}
-		for (int i = 0; i < file1.length(); i++) {
-			fos.write(fis.read());
+		byte[] bytes = new byte[1024];
+		int len = 0;
+		while ((len = fis.read(bytes)) != -1) {
+			fos.write(bytes);
 		}
 		fos.flush();
 		fos.close();

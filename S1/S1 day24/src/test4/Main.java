@@ -42,8 +42,10 @@ public class Main {
 		if (!file2.exists()) {
 			file2.createNewFile();
 		}
-		for (int i = 0; i < file1.length(); i++) {
-			fos.write(fis.read());
+		byte[] bytes = new byte[1024];
+		int len = 0;
+		while ((len = fis.read(bytes)) != -1) {
+			fos.write(bytes);
 		}
 		fos.flush();
 		fos.close();
