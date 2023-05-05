@@ -7,10 +7,10 @@ public class Main {
 	public static void main(String[] args) throws Exception {
 		String url = "https://www.miyoushe.com/mainPage/bbs_qrcode_mainpage.png";
 		String path2 = "C:/Users/RYX/Desktop/picture.png";
-		TestCopy(url, path2);
+		testCopy(url, path2);
 	}
 
-	private static void TestCopy(String url, String path2) throws Exception {
+	private static void testCopy(String url, String path2) throws Exception {
 		File file1 = getFile(url);
 		FileInputStream fis = new FileInputStream(file1);
 		File file2 = new File(path2);

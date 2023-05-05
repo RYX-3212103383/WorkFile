@@ -27,14 +27,14 @@ public class Main {
 			String msg = new String(bytes, 0, len);
 			System.out.println(msg);
 		}
-		TestCopy(path1,path2);
+		testCopy(path1,path2);
 		fos1.flush();
-		TestCopy(path1,path3);
+		testCopy(path1,path3);
 		fos1.close();
 		fis1.close();
 		file1.delete();
 	}
-	private static void TestCopy(String path1,String path2) throws Exception {
+	private static void testCopy(String path1,String path2) throws Exception {
 		File file1 = new File(path1);
 		FileInputStream fis = new FileInputStream(file1);
 		File file2 = new File(path2);
