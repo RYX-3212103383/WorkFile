@@ -6,12 +6,13 @@ import java.net.URL;
 public class Main {
 	public static void main(String[] args) throws Exception {
 		String url = "https://www.miyoushe.com/mainPage/bbs_qrcode_mainpage.png";
-		String path2 = "C:/Users/RYX/Desktop/picture.png";
-		testCopy(url, path2);
+		String path2 = "C:/Users/RYX/Desktop/";
+		String name=url.substring(url.lastIndexOf('/')+1);
+		testCopy(url, path2+name);
 	}
 
-	private static void testCopy(String path1,String path2) throws Exception {
-		File file1 = new File(path1);
+	private static void testCopy(String url,String path2) throws Exception {
+		File file1 = getFile(url);
 		FileInputStream fis = new FileInputStream(file1);
 		File file2 = new File(path2);
 		FileOutputStream fos = new FileOutputStream(file2);
