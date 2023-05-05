@@ -22,7 +22,7 @@ public class Main {
 		byte[] bytes = new byte[1024];
 		int len = 0;
 		while ((len = fis.read(bytes)) != -1) {
-			fos.write(bytes);
+			fos.write(bytes,0,len);
 		}
 		fos.flush();
 		fos.close();
