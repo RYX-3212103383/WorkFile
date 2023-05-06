@@ -22,8 +22,7 @@ public class Main {
 		float f = .06f;
 		int e = 100;
 		String msg = "我是中国人";
-		File file = new File(path);
-		FileOutputStream fos = new FileOutputStream(file);
+		FileOutputStream fos = new FileOutputStream(path);
 		DataOutputStream dos = new DataOutputStream(fos);
 		dos.writeBoolean(flag);
 		dos.writeByte(b);
@@ -38,8 +37,7 @@ public class Main {
 	}
 
 	public static void read(String path) throws Exception {
-		File file = new File(path);
-		FileInputStream fis = new FileInputStream(file);
+		FileInputStream fis = new FileInputStream(path);
 		DataInputStream dis = new DataInputStream(fis);
 		boolean flag = dis.readBoolean();
 		byte b = dis.readByte();
