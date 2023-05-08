@@ -10,10 +10,10 @@ import java.util.Set;
 public class Main {
 	public static void main(String[] args) throws Exception {
 		HashMap<Integer, Book> hm = new HashMap<>();
-		hm.put(1, new Book("西游记", 99.0, "罗成恩"));
-		hm.put(2, new Book("红楼梦", 56.0, "曹雪芹"));
-		hm.put(3, new Book("三国演义", 52.0, "罗贯中"));
-		hm.put(1, new Book("水浒传", 99.0, "施耐庵"));
+		hm.put(1, new Book(1,"西游记", 99.0, "罗成恩"));
+		hm.put(2, new Book(2,"红楼梦", 56.0, "曹雪芹"));
+		hm.put(3, new Book(3,"三国演义", 52.0, "罗贯中"));
+		hm.put(4, new Book(4,"水浒传", 99.0, "施耐庵"));
 		String path = "D:\\学习\\s1\\作业\\API\\源作业day27_01.txt";
 		File file = new File(path);
 		FileOutputStream fos1 = new FileOutputStream(file);

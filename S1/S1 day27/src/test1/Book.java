@@ -1,6 +1,7 @@
 package test1;
 
 public class Book {
+	Integer id;
 	private String name;
 	private Double price;
 	private String author;
@@ -8,7 +9,8 @@ public class Book {
 	public Book() {
 	}
 
-	public Book(String name, Double price, String author) {
+	public Book( Integer id,String name, Double price, String author) {
+		this.id=id;
 		this.name = name;
 		this.price = price;
 		this.author = author;
@@ -38,10 +40,21 @@ public class Book {
 		this.author = author;
 	}
 
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
 	@Override
 	public String toString() {
-		return "书名:" + name +
-				"\t价格:" + price +
-				"\t作者:" + author+"\n";
+		return "Book{" +
+				"id=" + id +
+				", name='" + name + '\'' +
+				", price=" + price +
+				", author='" + author + '\'' +
+				"}\n";
 	}
 }
