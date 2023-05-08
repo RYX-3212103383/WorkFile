@@ -10,13 +10,13 @@ public class Main {
 	static String path = "D:\\学习\\s1\\作业\\API\\day26_03.dat";
 
 	public static void main(String[] args) {
-		Double avg1 = 0.0;
+		Double avg1;
 		int temp1 = 0;
 		Double sum1 = 0.0;
-		Double avg2 = 0.0;
+		Double avg2;
 		int temp2 = 0;
 		Double sum2 = 0.0;
-		Double avg3 = 0.0;
+		Double avg3;
 		int temp3 = 0;
 		Double sum3 = 0.0;
 		try {
