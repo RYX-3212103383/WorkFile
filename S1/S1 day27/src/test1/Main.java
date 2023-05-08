@@ -4,8 +4,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
 
 public class Main {
 	public static void main(String[] args) throws Exception {
@@ -27,7 +25,7 @@ public class Main {
 			fos1.flush();
 		}
 		byte[] bytes = new byte[1024];
-		int len = 0;
+		int len;
 		while ((len = fis1.read(bytes)) != -1) {
 			String msg = new String(bytes, 0, len);
 			System.out.println(msg);

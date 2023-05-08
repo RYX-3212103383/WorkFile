@@ -31,7 +31,7 @@ public class Main {
 		fw.close();
 		FileReader fr = new FileReader(path);
 		BufferedReader bf = new BufferedReader(fr);
-		String str = null;
+		String str;
 		while ((str = bf.readLine()) != null) {
 			System.out.println(str);
 		}
