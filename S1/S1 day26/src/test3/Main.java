@@ -1,69 +1,77 @@
 package test3;
 
 import java.io.*;
+import java.text.DecimalFormat;
+import java.util.ArrayList;
 
 public class Main {
 	static String path = "D:\\学习\\s1\\作业\\API\\day26_03.dat";
 
 	public static void main(String[] args) {
+		ArrayList<Employee> list=new ArrayList<>();
+		int rows=100;
 		try {
-			for (int i = 0; i <= 100; i++) {
+			for (int i = 1; i <= rows; i++) {
 				String firstname = "Firstname" + i;
 				String lastname = "lastname" + i;
 				String level = null;
-				Integer salary = null;
+				Double salary = null;
 				int r = (int) (Math.random() * 3);
 				switch (r) {
 					case 0: {
 						level = "assistant";
-						salary = (int) (Math.random() * 30000 + 50000);
+						salary = getRandom(50000,80000);
 						break;
 					}
 					case 1: {
 						level = "associate";
-						salary = (int) (Math.random() * 50000 + 60000);
+						salary = getRandom(60000,110000);
 						break;
 					}
 					case 2: {
 						level = "full";
-						salary = (int) (Math.random() * 55000 + 65000);
+						salary = getRandom(75000,130000);
 						break;
 					}
 				}
 				Employee emp = new Employee(firstname, lastname, level, salary);
-				write(emp);
-				System.out.println(i);
+				list.add(emp);
 			}
-			read();
+			write(list);
+			System.out.println(read());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
-	public static void read() throws Exception {
+	public static Double getRandom(int min, int max){
+		Double ran=Math.random()*(max-min)+(min);
+		DecimalFormat df=new DecimalFormat("#.##");
+		ran= Double.valueOf(df.format(ran));
+		return ran;
+	}
+	public static Object read() throws Exception {
 		FileInputStream fis = new FileInputStream(path);
 		ObjectInputStream ois = new ObjectInputStream(fis);
-//		Employee stu = (Employee) ois.readObject();
-//		System.out.println(stu.toString());
-//		ois.close();
 		try {
-			//Employee p = (Employee) ois.readObject();
-			while(true) {
-					System.out.println(ois.readObject());
-				}
+			return ois.readObject();
 		} catch (Exception e) {
-			e.printStackTrace();
+			//e.printStackTrace();
+			return null;
 		} finally {
 			ois.close();
 		}
 	}
 
 
-	public static void write(Employee emp) throws Exception {
+	public static void write(Object obj) throws Exception {
 		File file=new File(path);
-		AppendObjectOutputStream oos = new AppendObjectOutputStream(file);
-		oos.writeObject(emp);
+		FileOutputStream fos=new FileOutputStream(file);
+		ObjectOutputStream oos = new ObjectOutputStream(fos);
+		oos.writeObject(obj);
+		oos.flush();
 		oos.close();
+		fos.close();
 	}
 }
 

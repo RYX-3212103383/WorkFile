@@ -8,9 +8,41 @@ public class Employee implements Serializable {
 	String firstname;
 	String lastname;
 	String level;
-	Integer salary;
+	Double salary;
 
-	public Employee(String firstname, String lastname, String level, Integer salary) {
+	public String getFirstname() {
+		return firstname;
+	}
+
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
+	}
+
+	public String getLastname() {
+		return lastname;
+	}
+
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
+	}
+
+	public String getLevel() {
+		return level;
+	}
+
+	public void setLevel(String level) {
+		this.level = level;
+	}
+
+	public Double getSalary() {
+		return salary;
+	}
+
+	public void setSalary(Double salary) {
+		this.salary = salary;
+	}
+
+	public Employee(String firstname, String lastname, String level, Double salary) {
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.level = level;

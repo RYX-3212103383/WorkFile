@@ -7,6 +7,8 @@ import java.io.IOException;
 import java.text.DecimalFormat;
 
 public class Workabroad2 {
+    //此为字节流的常规方法，文件为明文保存
+    //另一个为Object写入的二进制流，非人读取
     static String path = "D:\\学习\\s1\\作业\\API\\day26_03.dat";
     public static void main(String[] args) {
         circulate();
