@@ -28,13 +28,13 @@ public class MyFrame extends JFrame {
 		menuBar.add(help);
 		add(menuBar,BorderLayout.NORTH);
 		JPanel panel=new JPanel();
+		panel.setLayout(new BorderLayout());
 		//工具栏
 		JToolBar toolBar=new JToolBar("工具栏");
 		toolBar.add(btn1);
 		toolBar.add(btn2);
 		toolBar.add(btn3);
-		getContentPane().add(toolBar, BorderLayout.NORTH);
-		//panel.add(toolBar,BorderLayout.LINE_START);
+		panel.add(toolBar,BorderLayout.NORTH);
 		//文本域
 		JTextArea txtashow=new JTextArea();
 		add(panel);
