@@ -15,8 +15,10 @@ public class MyFrame extends JFrame {
 		setResizable(true);
 		setLocation(600, 400);
 		setLayout(new BorderLayout());
-		pl1.add(btn1, BorderLayout.NORTH);
-		pl2.add(btn2, BorderLayout.NORTH);
+		pl1.setLayout(new FlowLayout(FlowLayout.LEFT));
+		pl2.setLayout(new FlowLayout(FlowLayout.LEFT));
+		pl1.add(btn1);
+		pl2.add(btn2);
 		jtp.add("用户管理", pl1);
 		jtp.add("商品管理", pl2);
 		add(jtp);
