@@ -33,6 +33,8 @@ public class MyFrame extends JFrame {
 		setLayout(new GridLayout(3,2));
 		for (int i = 0; i < btn.length; i++) {
 			btn[i]=new JButton(text[i]);
+			btn[i].setHorizontalTextPosition(SwingConstants.CENTER);
+			btn[i].setVerticalTextPosition(SwingConstants.CENTER);
 			Image img= null;
 			try {
 				img = ImageIO.read(Objects.requireNonNull(this.getClass().getResource(imgPath[i])));
