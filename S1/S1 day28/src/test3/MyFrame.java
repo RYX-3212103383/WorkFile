@@ -38,7 +38,7 @@ public class MyFrame extends JFrame {
 			Image img= null;
 			try {
 				img = ImageIO.read(Objects.requireNonNull(this.getClass().getResource(imgPath[i])));
-				img.getScaledInstance(390,180,Image.SCALE_DEFAULT);
+				//img.getScaledInstance(390,180,Image.SCALE_DEFAULT);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
