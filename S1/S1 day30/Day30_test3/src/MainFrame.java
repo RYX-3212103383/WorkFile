@@ -2,9 +2,14 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Objects;
 
 public class MainFrame extends JFrame {
+	static int[] box1_falg = {0};
+	static int[] box2_falg = {0};
 	public MainFrame() {
 
 		setTitle("我的记事本");
@@ -38,7 +43,7 @@ public class MainFrame extends JFrame {
 		p11.add(p111);
 		String[] str = {"保存", "复制", "粘贴", "剪切"};
 		ImageIcon[] imgs = new ImageIcon[4];
-		String[] path = {"save.png", "copy.png", "prase.png", "cut.png"};
+		String[] path = {"save.png", "copy.png", "praise.png", "cut.png"};
 		JButton[] btn = new JButton[4];
 		for (int i = 0; i < str.length; i++) {
 			try {
@@ -46,7 +51,9 @@ public class MainFrame extends JFrame {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			btn[i] = new JButton(imgs[i]);
+			btn[i] = new JButton(str[i],imgs[i]);
+			btn[i].setHorizontalTextPosition(SwingConstants.CENTER);
+			btn[i].setVerticalTextPosition(SwingConstants.BOTTOM);
 			btn[i].setBorderPainted(false);
 			btn[i].setMargin(new Insets(0, 0, 0, 0));
 			btn[i].setBackground(new Color(237, 237, 237));
@@ -62,20 +69,42 @@ public class MainFrame extends JFrame {
 //中中面板
 		JTextArea textArea = new JTextArea();
 		textArea.setLineWrap(true);
-		JTabbedPane tabbedPane = new JTabbedPane();
 		p1.add(textArea, BorderLayout.CENTER);
-		tabbedPane.setBackground(new Color(0, 117, 170));
-		JPanel funtionPanel = new JPanel();
-		tabbedPane.addTab("功能导航窗口", funtionPanel);
-		JPanel adminPanel = new JPanel();
-		tabbedPane.addTab("操作员设置", adminPanel);
+		textArea.setFont(new Font("",0,20));
 //尾栏
 		JPanel p2 = new JPanel();
 		p2.setLayout(new FlowLayout(FlowLayout.CENTER, 100, 0));
 		add(p2, BorderLayout.SOUTH);
-		JLabel label3 = new JLabel("当前字数");
-		JLabel label4 = new JLabel("日期");
-		JLabel label5 = new JLabel("编码");
+		JLabel label3 = new JLabel("当前字数:"+textArea.getText().length());
+		DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String value = format.format(new Date());
+		JLabel label4 = new JLabel("日期:"+value);
+		JLabel label5 = new JLabel("编码:"+Tools.getEncoding());
+		new Thread(new Runnable() {
+			@Override
+
+			public void run() {
+				for (; ; ) {
+					if (box1.isSelected()) box1_falg[0] = 1;
+					else box1_falg[0] = 0;
+					if (box2.isSelected()) box2_falg[0] = 2;
+					else box2_falg[0] = 0;
+					int style = box1_falg[0] + box2_falg[0];
+					textArea.setFont(new Font("", style, 20));
+					label3.setText("当前字数:"+textArea.getText().length());
+					DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+					String value = format.format(new Date());
+					label4.setText("日期:"+value);
+					try {
+						Thread.sleep(100);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+				}
+
+			}
+
+		}).start();
 		p2.add(label3);
 		p2.add(label4);
 		p2.add(label5);
