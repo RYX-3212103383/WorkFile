@@ -15,7 +15,7 @@ public class MainFrame extends JFrame {
 		setTitle("我的记事本");
 		setResizable(true);
 		setSize(800, 600);
-		setMinimumSize(new Dimension(350, 190));
+		setMinimumSize(new Dimension(640, 220));
 		setLayout(new BorderLayout());
 //菜单栏
 		JMenuBar menuBar = new JMenuBar();
