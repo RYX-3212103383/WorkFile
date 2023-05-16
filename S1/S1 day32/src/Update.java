@@ -6,22 +6,31 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.Vector;
 
-public class Add extends JDialog {
-	Vector v = new Vector();
+public class Update extends JFrame {
 	private JLabel lblMsg = new JLabel("用户名");
+
 	private JLabel lblSu = new JLabel("密码");
+
 	private JLabel lblFu = new JLabel("姓名");
+
 	private JLabel lblDe = new JLabel("权限");
+
 	private JTextField txtName = new JTextField();
+
 	private JTextField txtPass = new JTextField();
+
 	private JTextField txtUserName = new JTextField();
+
 	private JComboBox cbo = new JComboBox();
+
 	private JButton btn1 = new JButton("确定");
+
 	private JButton btn2 = new JButton("取消");
 
-	public Add(Vector rows, int id) {
+	public Update(Vector rows,int index) {
 		super();
-		setTitle("用户管理->添加用户");
+		Vector vold= (Vector)(rows.get(index));
+		setTitle("用户管理->更新用户");
 		setSize(560, 430);
 		setLayout(null);
 		setBackground(new Color(236, 240, 244));
@@ -39,6 +48,9 @@ public class Add extends JDialog {
 		cbo.setBackground(new Color(246, 194, 123));
 		btn1.setBounds(230, 300, 120, 30);
 		btn2.setBounds(370, 300, 120, 30);
+		cbo.setSelectedItem(vold.get(3));
+		txtName.setText((String) vold.get(1));
+		txtUserName.setText((String) vold.get(2));
 		add(lblMsg);
 		add(lblSu);
 		add(lblFu);
@@ -50,15 +62,9 @@ public class Add extends JDialog {
 		add(btn1);
 		add(btn2);
 		setLocationRelativeTo(null);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
 		//事件监听
-		ImageIcon img = null;
-		try {
-			img = new ImageIcon(ImageIO.read(getClass().getResource("/img.png")));
-		} catch (IOException ex) {
-			ex.printStackTrace();
-		}
-		ImageIcon finalImg = img;
 		btn1.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -75,23 +81,33 @@ public class Add extends JDialog {
 						msg += "姓名";
 					}
 					msg += "!";
-
-					JOptionPane.showMessageDialog(null, msg, null, JOptionPane.WARNING_MESSAGE, finalImg);
+					ImageIcon img = null;
+					try {
+						img = new ImageIcon(ImageIO.read(getClass().getResource("/img.png")));
+					} catch (IOException ex) {
+						ex.printStackTrace();
+					}
+					JOptionPane.showMessageDialog(null, msg, null, JOptionPane.WARNING_MESSAGE, img);
 
 				}
-
 				if (length != 0) {
-					JOptionPane.showMessageDialog(null, "添加成功", "消息", JOptionPane.CANCEL_OPTION, finalImg);
-					v.add(Integer.toString(id));
+					ImageIcon img = null;
+					try {
+						img = new ImageIcon(ImageIO.read(getClass().getResource("/img.png")));
+					} catch (IOException ex) {
+						ex.printStackTrace();
+					}
+					JOptionPane.showMessageDialog(null, "更新成功", "消息", JOptionPane.CANCEL_OPTION, img);
+					Vector v = new Vector();
+					v.add(vold.get(0));
 					v.add(txtName.getText());
 					v.add(txtUserName.getText());
 					v.add(cbo.getSelectedItem());
-					v.add("不在岗");
-					rows.add(v);
+					v.add(vold.get(4));
+					rows.set(index,v);
 					dispose();
 				}
 			}
-
 		});
 
 		btn2.addActionListener(new ActionListener() {
@@ -101,9 +117,5 @@ public class Add extends JDialog {
 			}
 		});
 	}
-
-	public Vector getV() {
-		return v;
-	}
-
 }
+
