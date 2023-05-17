@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.Vector;
 
-public class Update extends JFrame {
+public class Update extends JDialog {
 	private JLabel lblMsg = new JLabel("用户名");
 
 	private JLabel lblSu = new JLabel("密码");
