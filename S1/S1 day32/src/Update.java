@@ -62,7 +62,6 @@ public class Update extends JDialog {
 		add(btn1);
 		add(btn2);
 		setLocationRelativeTo(null);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
 		//事件监听
 		btn1.addActionListener(new ActionListener() {
