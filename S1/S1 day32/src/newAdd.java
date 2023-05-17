@@ -132,10 +132,6 @@ public class newAdd extends JDialog {
 		});
 	}
 
-	public static void main(String[] args) {
-		Goods goods = new Goods();
-		new newAdd(goods.getRows2(), 2);
-	}
 
 	public Vector getV() {
 		return v;
