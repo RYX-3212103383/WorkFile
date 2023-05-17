@@ -22,6 +22,24 @@ public class Work1 extends JFrame {
 
 	private JButton btn4 = new JButton("查找");
 
+	private final JButton btnAdd = new JButton("添加商品");
+	private final JButton btnUp = new JButton("修改商品");
+	private final JButton btnCate = new JButton("类别管理");
+	private final JButton btnHuo = new JButton("货柜管理");
+	private final JButton btnDe = new JButton("删除");
+	private final JButton btnFind = new JButton("查找");
+	private final JButton btnOut = new JButton("导出Excel");
+
+	private final JLabel lblFind = new JLabel("查找:");
+	private final JComboBox cbo2 = new JComboBox();
+
+
+	private JTable table2 = new JTable();
+	private JScrollPane scrollPane2 = new JScrollPane();
+
+	private DefaultTableModel dtm2 = new DefaultTableModel();
+
+
 	private JTable table = new JTable();
 
 	private JScrollPane scrollPane = new JScrollPane();
@@ -112,7 +130,7 @@ public class Work1 extends JFrame {
 
 		}
 		dtm.setDataVector(rows, cols);
-		scrollPane.setBounds(0, 72, 750, 458);
+		scrollPane.setBounds(0, 72, 735, 360);
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
@@ -135,7 +153,62 @@ public class Work1 extends JFrame {
 		panel1.add(btn2);
 		panel1.add(btn3);
 		tabbedPane.addTab("用户管理", panel1);
-		JPanel panel2 = new JPanel();
+
+		JPanel panel2 = new JPanel(null);
+		btnAdd.setBounds(5, 5, 100, 25);
+		btnAdd.setBackground(new Color(214, 218, 224));
+
+		btnUp.setBounds(110,5,100,25);
+		btnUp.setBackground(new Color(214, 218, 224));
+
+		btnCate.setBounds(215, 5, 100, 25);
+		btnCate.setBackground(new Color(214, 218, 224));
+
+		btnHuo.setBounds(320, 5, 100, 25);
+		btnHuo.setBackground(new Color(214, 218, 224));
+
+		btnDe.setBounds(425, 5, 100, 25);
+		btnDe.setBackground(new Color(214, 218, 224));
+
+		lblFind.setBounds(420, 33, 30, 40);
+
+		cbo2.setBounds(455, 40, 80, 25);
+		cbo2.addItem("所有");
+		cbo2.setOpaque(false);
+
+		btnFind.setBounds(540, 40, 80, 25);
+		btnFind.setBackground(new Color(214, 218, 224));
+
+		btnOut.setBounds(625, 40, 100, 25);
+		btnOut.setBackground(new Color(214, 218, 224));
+
+		table2.setModel(dtm2);
+		Goods goods = new Goods();
+		dtm2.setDataVector(goods.getRows2(), goods.getCols2());
+		scrollPane2.setBounds(0, 75, 735, 360);
+		new Thread(new Runnable() {
+			@Override
+			public void run() {
+				for (; ; ) {
+					scrollPane2.setViewportView(table2);
+					try {
+						Thread.sleep(100);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		}).start();
+		panel2.add(scrollPane2);
+		panel2.add(btnAdd);
+		panel2.add(btnUp);
+		panel2.add(btnCate);
+		panel2.add(btnHuo);
+		panel2.add(btnDe);
+		panel2.add(btnFind);
+		panel2.add(btnOut);
+		panel2.add(lblFind);
+		panel2.add(cbo2);
 		tabbedPane.addTab("商品管理", panel2);
 		JPanel panel3 = new JPanel();
 		tabbedPane.addTab("销售记录", panel3);
@@ -152,6 +225,18 @@ public class Work1 extends JFrame {
 				String[] a = new String[length];
 				for (int i = 0; i < length; i++) {
 					a[i] = (String) table.getValueAt(index, i);
+				}
+				System.out.println(Arrays.toString(a));
+			}
+		});
+		table2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				index = table2.getSelectedRow();
+				int length = table2.getColumnCount();
+				String[] a = new String[length];
+				for (int i = 0; i < length; i++) {
+					a[i] = (String) table2.getValueAt(index, i);
 				}
 				System.out.println(Arrays.toString(a));
 			}
@@ -191,6 +276,26 @@ public class Work1 extends JFrame {
 					JOptionPane.showMessageDialog(null, "删除成功！", "消息",JOptionPane.YES_OPTION);
 					dtm.removeRow(i);
 				}
+			}
+		});
+		btnAdd.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				int id=1;
+				for (int i = 0;i<table2.getRowCount(); i++) {
+					int flag=1;
+					for (int j = 0;j<table2.getRowCount(); j++) {
+						String valueAt = (String) table2.getValueAt(j, 0);
+						System.out.println(valueAt+id+table2.getRowCount());
+						if(id==Integer.parseInt(valueAt)) {
+							flag=0;
+							break;
+						}
+					}if(flag==0) id++;
+					else break;
+				}
+				newAdd newadd = new newAdd(goods.getRows2(),id);
+				scrollPane.setViewportView(table2);
 			}
 		});
 	}
