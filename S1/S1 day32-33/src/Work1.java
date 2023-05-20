@@ -1,10 +1,7 @@
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.*;
 import java.util.Arrays;
 import java.util.Vector;
 
@@ -26,9 +23,9 @@ public class Work1 extends JFrame {
 	private final JButton btnUp = new JButton("修改商品");
 	private final JButton btnCate = new JButton("类别管理");
 	private final JButton btnHuo = new JButton("货柜管理");
-	private final JButton btnDe = new JButton("删除");
-	private final JButton btnFind = new JButton("查找");
-	private final JButton btnOut = new JButton("导出Excel");
+	private final JButton btnshopManegerDelete = new JButton("删除");
+	private final JButton btnshopManegerFind = new JButton("查找");
+	private final JButton btnShopManegerOutToExcel = new JButton("导出Excel");
 
 	private final JLabel lblFind = new JLabel("查找:");
 	private final JComboBox cbo2 = new JComboBox();
@@ -49,7 +46,31 @@ public class Work1 extends JFrame {
 	private Vector cols = new Vector();
 
 	private DefaultTableModel dtm = new DefaultTableModel();
+	private JButton btnShopLogOutToExcel = new JButton("导出到Excel");
+
+	private JButton btnShopLogDrawTable = new JButton("绘制表格");
+	private JButton btnShopLogFind = new JButton("查找");
+
+	private JLabel lblF = new JLabel("查找方式:");
+
+	private JComboBox cboTime = new JComboBox();
+	private JComboBox cboYear = new JComboBox();
+	private JLabel lblYear = new JLabel("年");
+	private JComboBox cboJI = new JComboBox();
+	private JLabel lblJi = new JLabel("季度");
+	private JComboBox cboMon = new JComboBox();
+	private JLabel lblMon = new JLabel("月");
+	private JComboBox cboDay = new JComboBox();
+	private JLabel lblDay = new JLabel("日");
+
+	private JTable table3 = new JTable();
+	private JScrollPane scrollPane3 = new JScrollPane();
+	private Vector rows3 = new Vector();
+	private Vector cols3 = new Vector();
+	private DefaultTableModel dtm3 = new DefaultTableModel();
 	int index=-1;
+
+	int selectdeyeararrayindex;
 
 	public Work1() {
 		setTitle("表格");
@@ -167,8 +188,8 @@ public class Work1 extends JFrame {
 		btnHuo.setBounds(320, 5, 100, 25);
 		btnHuo.setBackground(new Color(214, 218, 224));
 
-		btnDe.setBounds(425, 5, 100, 25);
-		btnDe.setBackground(new Color(214, 218, 224));
+		btnshopManegerDelete.setBounds(425, 5, 100, 25);
+		btnshopManegerDelete.setBackground(new Color(214, 218, 224));
 
 		lblFind.setBounds(420, 33, 30, 40);
 
@@ -176,11 +197,11 @@ public class Work1 extends JFrame {
 		cbo2.addItem("所有");
 		cbo2.setOpaque(false);
 
-		btnFind.setBounds(540, 40, 80, 25);
-		btnFind.setBackground(new Color(214, 218, 224));
+		btnshopManegerFind.setBounds(540, 40, 80, 25);
+		btnshopManegerFind.setBackground(new Color(214, 218, 224));
 
-		btnOut.setBounds(625, 40, 100, 25);
-		btnOut.setBackground(new Color(214, 218, 224));
+		btnShopManegerOutToExcel.setBounds(625, 40, 100, 25);
+		btnShopManegerOutToExcel.setBackground(new Color(214, 218, 224));
 
 		table2.setModel(dtm2);
 		Goods goods = new Goods();
@@ -204,13 +225,118 @@ public class Work1 extends JFrame {
 		panel2.add(btnUp);
 		panel2.add(btnCate);
 		panel2.add(btnHuo);
-		panel2.add(btnDe);
-		panel2.add(btnFind);
-		panel2.add(btnOut);
+		panel2.add(btnshopManegerDelete);
+		panel2.add(btnshopManegerFind);
+		panel2.add(btnShopManegerOutToExcel);
 		panel2.add(lblFind);
 		panel2.add(cbo2);
 		tabbedPane.addTab("商品管理", panel2);
 		JPanel panel3 = new JPanel();
+		panel3.setLayout(null);
+		//导出按钮
+		btnShopLogOutToExcel.setBounds(440, 10, 120, 30);
+		btnShopLogOutToExcel.setBackground(new Color(214, 218, 224));
+		//绘制按钮
+		btnShopLogDrawTable.setBounds(575, 10, 100, 30);
+		btnShopLogDrawTable.setBackground(new Color(214, 218, 224));
+		//查找按钮
+		btnShopLogFind.setBounds(575, 60, 100, 30);
+		btnShopLogFind.setBackground(new Color(214, 218, 224));
+		//时间选择下拉列表
+		cboTime.setBounds(220, 62, 100, 30);
+		cboTime.setBackground(new Color(214, 218, 224));
+		cboTime.addItem("最近一周");
+		cboTime.addItem("一个月内");
+		cboTime.addItem("今天");
+		cboTime.addItem("时间段");
+		//查找方式
+		lblF.setBounds(50, 70, 80, 20);
+
+		JPanel panel4 = new JPanel(null);
+		panel4.setBounds(0, 90, 750, 80);
+		//年下拉列表
+		cboYear.setBounds(50, 20, 100, 30);
+		cboYear.addItem("请选择");
+
+
+		int[] allyears = new int[24];
+		for (int i = 1; i < allyears.length; i++) {
+			allyears[i] = i + 2000;
+			cboYear.addItem(allyears[i]);
+		}
+
+		cboYear.setBackground(new Color(214, 218, 224));
+
+		lblYear.setBounds(160, 24, 20, 20);
+		//季度下拉列表
+		cboJI.setBounds(240, 20, 80, 30);
+		cboJI.addItem("请选择");
+		cboJI.addItem("1");
+		cboJI.addItem("2");
+		cboJI.addItem("3");
+		cboJI.addItem("4");
+
+		cboJI.setBackground(new Color(214, 218, 224));
+
+		lblJi.setBounds(330, 24, 30, 20);
+		//月份下拉列表
+		cboMon.setBounds(440, 20, 80, 30);
+		cboMon.setBackground(new Color(214, 218, 224));
+		cboMon.addItem("请选择");
+		lblMon.setBounds(530, 24, 20, 20);
+		//日期下拉列表
+		cboDay.setBounds(575, 20, 80, 30);
+		cboDay.addItem("请选择");
+		cboDay.setBackground(new Color(214, 218, 224));
+		lblDay.setBounds(665, 24, 20, 20);
+		new Thread(new Runnable() {
+			@Override
+			public void run() {
+				for (; ; ) {
+
+					String TimeSe = (String) cboTime.getSelectedItem();
+					if ("时间段".equals(TimeSe)) {
+						panel4.setVisible(true);
+					} else {
+						panel4.setVisible(false);
+					}
+					try {
+						Thread.sleep(100);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		}).start();
+		panel4.setVisible(false);
+		panel4.add(cboYear);
+		panel4.add(lblYear);
+		panel4.add(cboJI);
+		panel4.add(lblJi);
+		panel4.add(cboMon);
+		panel4.add(lblMon);
+		panel4.add(cboDay);
+		panel4.add(lblDay);
+		//滚动面板和表格
+		{
+			cols3.add("编号");
+			cols3.add("名称");
+			cols3.add("数量");
+			cols3.add("小计");
+		}
+		table3.setModel(dtm3);
+		table3.setGridColor(Color.LIGHT_GRAY);
+		dtm3.setDataVector(rows3, cols3);
+		scrollPane3.setViewportView(table3);
+		scrollPane3.setBounds(0, 160, 723, 270);
+		panel3.add(scrollPane3);
+		panel3.add(btnShopLogOutToExcel);
+		panel3.add(btnShopLogDrawTable);
+		panel3.add(btnShopLogFind);
+		panel3.add(cboTime);
+		panel3.add(lblF);
+		panel3.add(panel4);
+
 		tabbedPane.addTab("销售记录", panel3);
 		add(tabbedPane, BorderLayout.CENTER);
 		setLocationRelativeTo(null);
@@ -296,6 +422,111 @@ public class Work1 extends JFrame {
 				}
 				newAdd newadd = new newAdd(goods.getRows2(),id);
 				scrollPane.setViewportView(table2);
+			}
+		});
+		cboYear.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				selectdeyeararrayindex = cboYear.getSelectedIndex();
+				System.out.println("年份下标"+selectdeyeararrayindex+"年份"+allyears[selectdeyeararrayindex]);
+			}
+		});
+		cboJI.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+					cboMon.removeAllItems();
+				if (allyears[selectdeyeararrayindex] != 0) {
+					String ji = (String) cboJI.getSelectedItem();
+					if ("请选择".equals(ji)) {
+					} else if ("1".equals(ji)) {
+						int[] mon1 = {1, 2, 3};
+						for (int i = 0; i < mon1.length; i++) {
+							cboMon.addItem(mon1[i]);
+						}
+					} else if ("2".equals(ji)) {
+						int[] mon2 = {4, 5, 6};
+						for (int i = 0; i < mon2.length; i++) {
+							cboMon.addItem(mon2[i]);
+						}
+					} else if ("3".equals(ji)) {
+						int[] mon3 = {7, 8, 9};
+						for (int i = 0; i < mon3.length; i++) {
+							cboMon.addItem(mon3[i]);
+						}
+					} else if ("4".equals(ji)) {
+						int[] mon4 = {10, 11, 12};
+						for (int i = 0; i < mon4.length; i++) {
+							cboMon.addItem(mon4[i]);
+						}
+					}
+					System.out.println("已选择"+ji+"季度");
+				}
+			}
+		});
+		cboMon.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				int selectedMonthArrayValue=0;
+				try {
+					selectedMonthArrayValue=(int)cboMon.getSelectedItem();
+					System.out.println("选择了"+selectedMonthArrayValue+"月季度已更改");
+				} catch (Exception ex) {
+				}
+				cboDay.removeAllItems();
+				switch (selectedMonthArrayValue) {
+					case 1:
+					case 3:
+					case 5:
+					case 7:
+					case 8:
+					case 10:
+					case 12:
+						int[] date = new int[31];
+						for (int i = 0; i < date.length; i++) {
+							date[i] = i + 1;
+							cboDay.addItem(date[i]);
+						}
+						break;
+					case 2:
+						int a=allyears[selectdeyeararrayindex];
+						if ((a % 4 == 0 && a % 100 != 0) || a % 400 == 0) {
+							int[] date2 = new int[29];
+							for (int i = 0; i < date2.length; i++) {
+								date2[i] = i + 1;
+								cboDay.addItem(date2[i]);
+							}
+						} else {
+							int[] date2 = new int[28];
+							for (int i = 0; i < date2.length; i++) {
+								date2[i] = i + 1;
+								cboDay.addItem(date2[i]);
+							}
+						}
+						break;
+					default:
+						int[] date3 = new int[30];
+						for (int i = 0; i < date3.length; i++) {
+							date3[i] = i + 1;
+							cboDay.addItem(date3[i]);
+						}
+				}
+			}
+		});
+		cboDay.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				int selectedDay;
+				try {
+					selectedDay = (int) cboDay.getSelectedItem();
+					System.out.println("选择了" + selectedDay + "日");
+				} catch (Exception ex) {
+				}
+			}
+		});
+		btnshopManegerFind.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
 			}
 		});
 	}
