@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/S1/S1 day30/Day30_Test1/Day30_Test1.iml" filepath="$PROJECT_DIR$/S1/S1 day30/Day30_Test1/Day30_Test1.iml" />
-      <module fileurl="file://$PROJECT_DIR$/S1/S1 day30/Day30_Test2/Day30_Test2.iml" filepath="$PROJECT_DIR$/S1/S1 day30/Day30_Test2/Day30_Test2.iml" />
-      <module fileurl="file://$PROJECT_DIR$/S1/S1 day30/Day30_test3/Day30_test3.iml" filepath="$PROJECT_DIR$/S1/S1 day30/Day30_test3/Day30_test3.iml" />
       <module fileurl="file://$PROJECT_DIR$/S1/S1.iml" filepath="$PROJECT_DIR$/S1/S1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/S1/S1 Day35/S1 Day35.iml" filepath="$PROJECT_DIR$/S1/S1 Day35/S1 Day35.iml" />
       <module fileurl="file://$PROJECT_DIR$/S1/S1 day01/S1 day01.iml" filepath="$PROJECT_DIR$/S1/S1 day01/S1 day01.iml" />
       <module fileurl="file://$PROJECT_DIR$/S1/S1 day02/S1 day02.iml" filepath="$PROJECT_DIR$/S1/S1 day02/S1 day02.iml" />
       <module fileurl="file://$PROJECT_DIR$/S1/S1 day03/S1 day03.iml" filepath="$PROJECT_DIR$/S1/S1 day03/S1 day03.iml" />
